@@ -3,6 +3,7 @@ import {
   About,
   Cart,
   Checkout,
+  Error,
   HomeLayout,
   Landing,
   Login,
