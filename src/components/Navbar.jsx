@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { BsCart3 } from 'react-icons/bs';
+import NavLinks from './NavLinks';
 
 const Navbar = () => {
   return (
@@ -23,15 +24,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
             >
-              <li>
-                <a>Homepage</a>
-              </li>
-              <li>
-                <a>Portfolio</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
+              <NavLinks />
             </ul>
           </div>
         </div>
@@ -39,15 +32,7 @@ const Navbar = () => {
         {/* NAVLINKS */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal">
-            <li>
-              <a>Homepage</a>
-            </li>
-            <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About</a>
-            </li>
+            <NavLinks />
           </ul>
         </div>
 
