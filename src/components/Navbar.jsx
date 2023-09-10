@@ -17,7 +17,7 @@ const getThemeFromLocalStorage = () => {
 const Navbar = () => {
   const [theme, setTheme] = useState(getThemeFromLocalStorage());
 
-  const { numItemsInCart } = useSelector((state) => state.cartState);
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   const handleTheme = () => {
     const { winter, dracula } = themes;
