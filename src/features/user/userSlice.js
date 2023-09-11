@@ -1,8 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const themes = {
+  winter: 'winter',
+  dracula: 'dracula',
+};
+
+const getThemeFromLocalStorage = () => {
+  const theme = localStorage.getItem('theme') || themes.winter;
+  document.documentElement.setAttribute('data-theme', theme);
+  return theme;
+};
+
 const defaultState = {
   user: { username: 'coder girl' },
-  theme: 'winter',
+  theme: getThemeFromLocalStorage(),
 };
 
 const userSlice = createSlice({
@@ -15,8 +26,11 @@ const userSlice = createSlice({
     logoutUser: (state, action) => {
       console.log('logout user');
     },
-    toggleTheme: (state, action) => {
-      console.log('toggle theme');
+    toggleTheme: (state) => {
+      const { winter, dracula } = themes;
+      state.theme = state.theme === winter ? dracula : winter;
+      document.documentElement.setAttribute('data-theme', state.theme);
+      localStorage.setItem('theme', state.theme);
     },
   },
 });
