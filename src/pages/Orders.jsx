@@ -1,7 +1,11 @@
 import { redirect, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { customFetch } from '../utils/helpers';
-import { OrdersList, PaginationContainer, SectionTitle } from '../components';
+import {
+  ComplexPaginationContainer,
+  OrdersList,
+  SectionTitle,
+} from '../components';
 
 export const loader =
   (store) =>
@@ -50,7 +54,7 @@ const Orders = () => {
     <>
       <SectionTitle text="your orders" />
       <OrdersList />
-      <PaginationContainer />
+      <ComplexPaginationContainer />
     </>
   );
 };

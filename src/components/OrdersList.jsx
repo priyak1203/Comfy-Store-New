@@ -3,7 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const OrdersList = () => {
   const { orders, meta } = useLoaderData();
-  console.log(orders);
 
   return (
     <section className="mt-8">
