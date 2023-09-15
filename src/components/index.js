@@ -9,6 +9,7 @@ export { default as Header } from './Header';
 export { default as Hero } from './Hero';
 export { default as Loading } from './Loading';
 export { default as Navbar } from './Navbar';
+export { default as OrdersList } from './OrdersList';
 export { default as PaginationContainer } from './PaginationContainer';
 export { default as ProductsContainer } from './ProductsContainer';
 export { default as SectionTitle } from './SectionTitle';
