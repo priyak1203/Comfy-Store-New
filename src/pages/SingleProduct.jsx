@@ -8,15 +8,26 @@ import {
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/cartSlice';
 
-export const loader = async ({ params }) => {
-  try {
-    const response = await customFetch(`/products/${params.id}`);
-    return { product: response.data.data };
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => customFetch.get(`/products/${id}`),
+  };
 };
+
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    try {
+      const response = await queryClient.ensureQueryData(
+        singleProductQuery(params.id)
+      );
+      return { product: response.data.data };
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  };
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
